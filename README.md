@@ -10,6 +10,8 @@ In order to run tests, first run the `rake db:test:prepare` command and then `ra
 
 -  [X]  Create static welcome page
 
--  [ ]  Create User model
+-  [X]  Create User model
+
+-  [ ]  Create signup flow
 
 -  [ ]  Deploy to Heroku

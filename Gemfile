@@ -21,6 +21,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'factory_girl_rails'
 end
 
 group :production do
