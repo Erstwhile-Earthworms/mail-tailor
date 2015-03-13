@@ -14,6 +14,8 @@ In order to run tests, first run the `rake db:test:prepare` command and then `ra
 
 -  [X]  Create signup flow
 
--  [ ]  Create login sessions
+-  [X]  Create login sessions (sign in and sign out)
 
 -  [ ]  Deploy to Heroku
+
+-  [ ]  Protect User page so only logged in user can view it
