@@ -16,6 +16,23 @@ ActiveRecord::Schema.define(version: 20150313005412) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "letters", force: :cascade do |t|
+    t.text     "title"
+    t.text     "content"
+    t.text     "sender"
+    t.integer  "sender_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "senders", force: :cascade do |t|
+    t.text     "name"
+    t.text     "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"

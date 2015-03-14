@@ -1,0 +1,35 @@
+<h1>Look at all these mails!!</h1>
+<br>
+
+<% @senders.each do |sender| %>
+
+<%= sender.name %><br>
+<%= sender.url %>
+
+<%end%>
+
+<% @senders.each do |sender| %>
+
+  <h2><%= sender.name %></h2>
+  <h3><%= sender.url %></h3>
+  <% @letters.each do |letter|
+    if letter.sender_id == sender.id %>
+      <%=letter.content.html_safe%>
+      <br>
+    <%end%>
+    <br>
+
+    <%end%>
+<%end%>
+<hr>
+<br><br><br><br><br><br>
+<h1>And now just the mail!</h1>
+<br><br>
+
+<% @letters.each do |letter| %>
+  <h4>letter</h4>
+  <%=letter.content%>
+  <%=letter.title%>
+  <%=letter.id%>
+  <br>
+<% end %>
