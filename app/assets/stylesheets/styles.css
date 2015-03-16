@@ -1,0 +1,42 @@
+body{
+    background-image: url(mail.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#header {
+    background-color: #202623;
+    border: 0;
+    color: white;
+}
+
+#login {
+    margin-top: 25px;
+    background-color: white;
+}
+
+#login:hover {
+    background-color: #2589B4;
+}
+
+#create {
+    margin-top: 25px;
+    background-color: white;
+}
+
+#create:hover {
+    background-color: #2589B4;
+}
+
+#content {
+    background-color: #202623;
+}
+
+#modallog {
+    background-color: #202623; 
+    color: white;
+}
+
+#modallog:hover {
+    background-color: #2589B4;
+}
