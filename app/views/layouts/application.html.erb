@@ -16,9 +16,12 @@
           <div class = "row page-header" id="header">
               <h1 class = "col-md-4 text-center">Mail Tailor</h1>
               <div class="col-md-2 col-md-offset-5">
-                  <a class="btn" role="button" id="create" data-toggle="modal" data-target="#createmodal">CREATE</a>
-                  <a class="btn" role="button" id="login" data-toggle="modal" data-target="#loginmodal">LOGIN</a>
-                  <a class="btn" role="button" id="logout" data-toggle="modal" data-method='delete' href="<%= signout_path %>">LOGOUT</a>
+                  <% if signed_in? %>
+                      <a class="btn" role="button" id="logout" data-toggle="modal" data-method='delete' href="<%= signout_path %>">LOGOUT</a>
+                  <% else %>
+                      <a class="btn" role="button" id="create" data-toggle="modal" data-target="#createmodal">CREATE</a>
+                      <a class="btn" role="button" id="login" data-toggle="modal" data-target="#loginmodal">LOGIN</a>
+                  <% end %>
               </div>
           </div>
 
