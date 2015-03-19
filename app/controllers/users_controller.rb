@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @senders = @letters.select(:sender).distinct
   end
 
   private
