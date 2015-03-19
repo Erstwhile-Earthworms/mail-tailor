@@ -3,6 +3,8 @@ namespace :db do
   task populate: :environment do
 
     User.delete_all
+    Letter.delete_all
+    Sender.delete_all
     user1 = User.create(name:'Collin Meyers', email:'cfmeyers@gmail.com', password:'123456', password_confirmation:'123456', mtname:'collin')
     user2 = User.create(name:'Kyle H', email:'kyle@kylemail.com', password:'123456', password_confirmation:'123456', mtname:'Kyle')
     sender1 = Sender.create(name:'Papa Johns')
