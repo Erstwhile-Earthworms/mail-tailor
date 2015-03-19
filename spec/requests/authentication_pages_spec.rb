@@ -11,6 +11,13 @@ RSpec.describe "Authentication", :type => :request do
 
     it { should have_content('LOGIN') }
 
+    describe "with invalid information" do
+      it "doesn't sing in with invalid info" do
+        sign_in(User.new({email:'notvalid', password:'alsonotvalid'}))
+        should_not have_link('LOGOUT',    href: signout_path)
+      end
+    end
+
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       before do
