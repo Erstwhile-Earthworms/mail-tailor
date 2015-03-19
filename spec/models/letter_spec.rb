@@ -8,10 +8,12 @@ require 'rails_helper'
 
 RSpec.describe Letter, :type => :model do
   let(:user) { FactoryGirl.create(:user) }
+  let(:sender) { FactoryGirl.create(:sender) }
 
 
   before do
     @letter = user.letters.build(title: 'The Title', content: 'Some content')
+    @letter.sender = sender
   end
 
   subject { @letter }
@@ -27,8 +29,17 @@ RSpec.describe Letter, :type => :model do
     expect(@letter.user).to eq(user)
   end
 
+  it "should have a sender" do
+    expect(@letter.sender).to eq(sender)
+  end
+
   describe "when a user_id is not present" do
     before {@letter.user_id = nil }
+    it { should_not be_valid }
+  end
+
+  describe "when a sender_id is not present" do
+    before {@letter.sender_id = nil }
     it { should_not be_valid }
   end
 

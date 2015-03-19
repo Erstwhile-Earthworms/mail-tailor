@@ -6,16 +6,16 @@ FactoryGirl.define do
     password_confirmation "foobar"
   end
 
-  # t.text :title
-  # t.text :content
-  # t.text :sender
-  # t.integer :sender_id
-  # t.integer :user_id
+  factory :sender do
+    name "LinkedIn"
+  end
 
   factory :letter do
     title "An email"
     content "Dear Sir or Ma'am, blah blah"
     user
+    sender
   end
+
 
 end
