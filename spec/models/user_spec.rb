@@ -9,6 +9,7 @@ RSpec.describe User, :type => :model do
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
+  it { should respond_to(:letters) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
@@ -64,6 +65,27 @@ RSpec.describe User, :type => :model do
       let(:user_for_invalid_password) { found_user.authenticate("invalid") }
       it { should_not eq user_for_invalid_password }
       specify { expect(user_for_invalid_password).to be_falsey }
+    end
+
+  end
+
+  describe "letters associations" do
+    before { @user.save }
+
+    let!(:older_letter) { FactoryGirl.create(:letter, user: @user, created_at: 1.day.ago) }
+    let!(:newer_letter) { FactoryGirl.create(:letter, user: @user, created_at: 1.hour.ago) }
+
+    it "should have the right letters in the right order" do
+      expect(@user.letters).to eq [newer_letter, older_letter]
+    end
+
+    it "should destroy associated letters" do
+      letters = @user.letters.to_a
+      @user.destroy
+      expect(letters).to_not be_empty
+      letters.each do |letter|
+        expect(Letter.where(id:letter.id)).to be_empty
+      end
     end
 
   end

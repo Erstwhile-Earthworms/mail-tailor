@@ -6,7 +6,7 @@ RSpec.describe "Static pages", :type => :request do
 
     it "home page has welcome message" do
       visit root_path
-      expect(page).to have_content('Welcome to MailTailor')
+      expect(page).to have_content('Mail Tailor')
     end
 
   end

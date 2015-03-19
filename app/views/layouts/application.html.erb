@@ -64,11 +64,11 @@
 
                           <div class="modal-body" id="modal-body">
                                   <form action="/users" method="POST">
-                                      <label>Name <input name='user[name]' type='text' placeholder="name"></label>
+                                      <label>Name <input id='name_input' name='user[name]' type='text' placeholder="name"></label>
                                       <label>UserName <input name='user[mtname]' type='text' placeholder="username"></label>
-                                      <label>Email <input name='user[email]' type='text' placeholder="email"></label>
-                                      <label>Password <input name='user[password]' type='password' placeholder="password"></label>
-                                      <label>Confirm Password <input name='user[password_confirmation]' type='password' placeholder="confirm password"></label>
+                                      <label>Email <input id='email_input' name='user[email]' type='text' placeholder="email"></label>
+                                      <label>Password <input id='password_input' name='user[password]' type='password' placeholder="password"></label>
+                                      <label>Confirm Password <input id='password_confirmation_input' name='user[password_confirmation]' type='password' placeholder="confirm password"></label>
                                       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 								      <button class="btn" id="modallog">CREATE</button>
                                    </form>

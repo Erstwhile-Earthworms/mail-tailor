@@ -4,31 +4,33 @@ RSpec.describe "Authentication", :type => :request do
 
   describe "signin page" do
     subject { page }
-    before { visit signin_path }
+    before do 
+      visit root_path 
+      find('#login').click
+    end
 
-    it { should have_content('Sign in') }
+    it { should have_content('LOGIN') }
 
     describe "with invalid information" do
-      before { click_button 'Sign in' }
-
-      it { should have_content('Sign in') }
+      it "doesn't sing in with invalid info" do
+        sign_in(User.new({email:'notvalid', password:'alsonotvalid'}))
+        should_not have_link('LOGOUT',    href: signout_path)
+      end
     end
 
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       before do
-        fill_in "Email",    with: user.email.upcase
-        fill_in "Password", with: user.password
-        click_button "Sign in"
+        sign_in(user)
       end
 
-      it { should have_link('Sign out',    href: signout_path) }
+      it { should have_link('LOGOUT',    href: signout_path) }
 
       describe "followed by signout" do
-        before { click_link 'Sign out' }
-        it { should have_link 'Sign in' }
-        
+        before { click_link 'LOGOUT' }
+        it { should have_content('LOGIN') }
       end
+
     end
 
     
