@@ -11,7 +11,7 @@ RSpec.describe Letter, :type => :model do
 
 
   before do
-    @letter = user.letters.build(title: 'The Title', content: 'Some content', user_id:user.id)
+    @letter = user.letters.build(title: 'The Title', content: 'Some content')
   end
 
   subject { @letter }
