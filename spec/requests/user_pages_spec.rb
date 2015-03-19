@@ -24,26 +24,15 @@ RSpec.describe "UserPages", :type => :request do
 
     describe "with valid information" do
       before do
-        # fill_in "Name", with:"Example User"
         find('#name_input').set('Example User')
         find('#email_input').set('user@example.com')
         find('#password_input').set('foobar')
         find('#password_confirmation_input').set('foobar')
-        # fill_in 'name', with: 'Example User' 
-        # fill_in "Email", with:"user@example.com"
-        # fill_in "Password", with:"foobar"
-        # fill_in "Password confirmation", with:"foobar"
       end
 
       it "should create a new user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
-
-      # describe "after saving the user" do
-      #   before { click_button submit }
-      #   let(:user) { User.find_by(email: 'user@example.com') }
-      #   it { should have_link('Sign out')}
-      # end
 
     end
 

@@ -14,9 +14,7 @@ RSpec.describe "Authentication", :type => :request do
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       before do
-        find('#session_email').set(user.email.upcase)
-        find('#session_password').set(user.password)
-        click_button "Sign in"
+        sign_in(user)
       end
 
       it { should have_link('LOGOUT',    href: signout_path) }
