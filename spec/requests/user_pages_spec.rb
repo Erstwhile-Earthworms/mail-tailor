@@ -39,9 +39,19 @@ RSpec.describe "UserPages", :type => :request do
   end
 
   describe "individual user page" do
+
     let(:user) { FactoryGirl.create(:user) }
+    let!(:letter1) { FactoryGirl.create(:letter, user:user, content:'Foo')}
+    let!(:letter2) { FactoryGirl.create(:letter, user:user, content:'Bar')}
+
     before { visit user_path(user) }
     it { should have_content(user.name) }
+
+    describe "letters" do
+      it { should have_content(letter1.content) }
+      it { should have_content(letter2.content) }
+    end
+
   end
 
 end
