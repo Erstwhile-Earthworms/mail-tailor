@@ -41,11 +41,11 @@ RSpec.describe "UserPages", :type => :request do
   describe "individual user page" do
 
     let(:user) { FactoryGirl.create(:user) }
-    let!(:letter1) { FactoryGirl.create(:letter, user:user, content:'Foo')}
-    let!(:letter2) { FactoryGirl.create(:letter, user:user, content:'Bar')}
+    let!(:sender) { Sender.create(name:'sender.com', display_name: 'Sender')}
+    let!(:letter1) { FactoryGirl.create(:letter, user:user, content:'Foo', sender:sender)}
+    let!(:letter2) { FactoryGirl.create(:letter, user:user, content:'Bar', sender:sender)}
 
     before { visit user_path(user) }
-    it { should have_content(user.name) }
 
     describe "letters" do
       it { should have_content(letter1.content) }
