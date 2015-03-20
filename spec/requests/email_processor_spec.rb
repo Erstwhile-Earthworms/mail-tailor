@@ -18,6 +18,12 @@ RSpec.describe "EmailProcessor", :type => :request do
           expect(Sender.all.count).to be 0
           expect { page.driver.post(email_processor_path, email) }.to change(Sender, :count)
         end
+
+        specify "the sender's display name is properly computed" do
+          page.driver.post(email_processor_path, email)
+          sender = Sender.all.first
+          expect(sender.display_name).to eq('Smith')
+        end
       end
 
       describe "when there is a  matching sender in the database already" do

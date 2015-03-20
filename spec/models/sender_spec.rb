@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Sender, :type => :model do
 
   before do
-    @sender = Sender.new(name:'LinkedIn')
+    @sender = Sender.new(name:'linkedin.com', display_name:'LinkedIn')
   end
 
   subject{ @sender }
