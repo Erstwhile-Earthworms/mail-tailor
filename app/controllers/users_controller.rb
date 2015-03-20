@@ -17,9 +17,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @letters = @user.letters
-    # @numbers = @letters.select(:sender_id).distinct
-    # @senders = Letter.select(Sender).distinct
+
+    @senders = @user.letters.map { |letter| letter.sender }
   end
 
   private
