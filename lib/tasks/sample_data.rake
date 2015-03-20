@@ -8,10 +8,10 @@ namespace :db do
     user1 = User.create(name:'Collin Meyers', email:'cfmeyers@gmail.com', password:'123456', password_confirmation:'123456', mtname:'collin')
     user2 = User.create(name:'Kyle H', email:'kyle@kylemail.com', password:'123456', password_confirmation:'123456', mtname:'Kyle')
     user3 = User.create(name:'Ian Brown', email:'ianmichaelbrownie@gmail.com', password:'123456', password_confirmation:'123456', mtname:'Ian')
-    sender1 = Sender.create(name:'Papa Johns')
-    sender2 = Sender.create(name:'LinkedIn')
-    sender3 = Sender.create(name:'Slack')
-    sender4 = Sender.create(name:'CUNY')
+    sender1 = Sender.create(name:'papajohns.com', display_name: 'Papa Johns')
+    sender2 = Sender.create(name: 'linkedin.com', display_name:'Linkedin')
+    sender3 = Sender.create(name: 'slack.com', display_name:'Slack')
+    sender4 = Sender.create(name: 'cuney.edu', display_name:'Cuny')
 
 
     user1.letters.create!(sender: sender1, content:"Today through Sunday, March 22nd, get a Large Cheese Pizza for just $5.99 when you carryout.", title:"Deal from Papa John's")
