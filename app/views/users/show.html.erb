@@ -32,7 +32,7 @@
                 </li>
                 <% @senders.each do |sender| %>
                   <li>
-                      <span id = "<%= sender.sender.gsub(" " , "").gsub('.' , "") %>" ><%= sender.sender %></a>
+                      <span id = "<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>" ><%= sender.display_name %></a>
                   </li>
                 <% end %>
 
@@ -88,8 +88,8 @@
 
   <% @senders.each do |sender| %>
 
-    var <%= 'get' + sender.sender.gsub(" " , "").gsub("." , "") %> = document.getElementById("<%= sender.sender.gsub(" " , "").gsub('.' , "") %>");
-    <%= 'get' + sender.sender.gsub(" " , "").gsub("." , "") %>.addEventListener("click" , function(){alert('<%= sender.sender %>')});
+    var <%= 'get' + sender.display_name.gsub(" " , "").gsub("." , "") %> = document.getElementById("<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>");
+    <%= 'get' + sender.display_name.gsub(" " , "").gsub("." , "") %>.addEventListener("click" , function(){alert('<%= sender.display_name %>')});
 
   <% end %>
 
