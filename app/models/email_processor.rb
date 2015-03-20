@@ -10,9 +10,17 @@ class EmailProcessor
 
     if user
       sender_host_name = @email.from[:host]
-      sender = Sender.find_by_name(sender_host_name) || Sender.create(name: sender_host_name)
-      Letter.create!({ content: @email.body, sender:sender, user:user})
+      sender = Sender.find_by_name(sender_host_name) || Sender.create(name: sender_host_name, display_name: parse_display_name(sender_host_name) )
+      Letter.create!({ content: @email.body, sender:sender, user:user, raw_html:@email.raw_html})
     end
 
   end
+
+  def parse_display_name(host_name)
+    if host_name.include? '.'
+      return host_name.split('.')[0].capitalize
+    end
+    host_name
+  end
+
 end
