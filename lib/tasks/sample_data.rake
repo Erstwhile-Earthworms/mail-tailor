@@ -7,7 +7,7 @@ namespace :db do
     Sender.delete_all
     user1 = User.create(name:'Collin Meyers', email:'cfmeyers@gmail.com', password:'123456', password_confirmation:'123456', mtname:'collin')
     user2 = User.create(name:'Kyle H', email:'kyle@kylemail.com', password:'123456', password_confirmation:'123456', mtname:'Kyle')
-    user3 = User.create(name:'Ian Brown', email:'ianmichaelbrowne@gmail.com', password:'123456', password_confirmation:'123456', mtname:'Ian')
+    user3 = User.create(name:'Ian Brown', email:'ianmichaelbrownie@gmail.com', password:'123456', password_confirmation:'123456', mtname:'Ian')
     sender1 = Sender.create(name:'Papa Johns')
     sender2 = Sender.create(name:'LinkedIn')
     sender3 = Sender.create(name:'Slack')
