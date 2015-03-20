@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" type="text/css" href="dashboardstyle.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/simple-sidebar.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class = "container-fluid">
+
+     <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand" id="logo">
+                    <a href="index.html">
+                        MAIL THING
+                    </a>
+                </li>
+
+                <li id="emailside">
+                    EMAIL ADDRESS
+                </li>
+
+                <li>
+                    <input placeholder="SEARCH" id="search">
+                </li>
+
+                <li>
+                    <a href="#">AMAZON</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+
+        <!-- Page Content -->
+          <div id="page-content-wrapper">
+              <div class="container-fluid">
+                  <div class="row">
+                      <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+                          <div class="container-fluid">
+                              <div class="navbar-header">
+                                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                      <ul class="nav navbar-nav">
+                                          <li><h3 id="sender">SENDER</h3></li>
+                                          <li class="dropdown" id="dropdown">
+                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MAIL TYPE <span class="caret"></span></a>
+                                              <ul class="dropdown-menu" role="menu">
+                                                  <li><a href="#">SALES</a></li>
+                                                  <li class="divider"></li>
+                                                  <li><a href="#">NEWS</a></li>
+                                                  <li class="divider"></li>
+                                                  <li><a href="#">ACCOUNT</a></li>
+                                                  <li class="divider"></li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                      <input type="text" placeholder="SEARCH" id="searchtop">
+                                  </div><!-- /.navbar-collapse -->
+                              </div><!-- /.container-fluid -->
+                          </nav>
+                          <% @user.letters.each do |letter| %>
+                          <div class="col-lg-12" id="content">
+                              <div id="email">
+                                  <%= letter.title %> <br/>
+                                  <br/>
+                                  <%= letter.content.html_safe %>
+                                  </div>
+
+                          </div>
+
+                      </div>
+                  </div>
+              </div><!-- /#page-content-wrapper -->
+          </div> <!-- closes container -->
+  <!-- Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  </body>
+  </html>

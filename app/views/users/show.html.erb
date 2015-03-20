@@ -1,6 +1,95 @@
 <h1>Welcome, <%= @user.name%></h1>
-<ul>
-<% @user.letters.each do |letter| %>
-  <li><%= letter.content %></li>
-<% end %>
-</ul>
+
+<div background-color="olive">
+
+  <body>
+    <div class = "container-fluid">
+
+       <div id="wrapper">
+
+          <!-- Sidebar -->
+          <div id="sidebar-wrapper">
+              <ul class="sidebar-nav">
+                  <li class="sidebar-brand" id="logo">
+                      <a href="index.html">
+                          MAIL THING
+                      </a>
+                  </li>
+
+                  <li id="emailside">
+                      EMAIL ADDRESS
+                  </li>
+
+                  <li>
+                      <input placeholder="SEARCH" id="search">
+                  </li>
+
+                  <li>
+                      <a href="#">AMAZON</a>
+                  </li>
+                  <li>
+                      <a href="#">APPLE</a>
+                  </li>
+                  <li>
+                      <a href="#">EXPRESS</a>
+                  </li>
+                  <li>
+                      <a href="#">PUMA</a>
+                  </li>
+                  <li>
+                      <a href="#">DSW</a>
+                  </li>
+                  <li>
+                      <a href="#">MARVEL</a>
+                  </li>
+                  <li>
+                      <a href="#">BUZZFEED</a>
+                  </li>
+
+                   <li id="read">
+                      READ
+                  </li>
+
+                  <li>
+                      <a href="#">AMAZON</a>
+                  </li>
+                  <li>
+                      <a href="#">APPLE</a>
+                  </li>
+                  <li>
+                      <a href="#">EXPRESS</a>
+                  </li>
+                  <li>
+                      <a href="#">PUMA</a>
+                  </li>
+                  <li>
+                      <a href="#">DSW</a>
+                  </li>
+                  <li>
+                      <a href="#">MARVEL</a>
+                  </li>
+                  <li>
+                      <a href="#">BUZZFEED</a>
+                  </li>
+
+              </ul>
+          </div>
+          <!-- /#sidebar-wrapper -->
+
+
+
+
+  <ul>
+  <% @user.letters.each do |letter| %>
+    <li><%= letter.content %></li>
+  <% end %>
+
+  <% @letters.each do |letter| %>
+    <li><%= letter.content %></li>
+  <% end %>
+  </ul>
+
+  <br>
+  <hr>
+
+</div>
