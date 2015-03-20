@@ -1,4 +1,9 @@
 <h1>Welcome, <%= @user.name%></h1>
+
+<% @senders.each do |sender| %>
+    <h1><%= sender.name %></h1>
+<% end %>
+
 <ul>
 <% @user.letters.each do |letter| %>
   <li><%= letter.content %></li>
