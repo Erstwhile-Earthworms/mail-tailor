@@ -19,6 +19,7 @@ RSpec.describe Letter, :type => :model do
   subject { @letter }
 
   it { should respond_to(:title) }
+  it { should respond_to(:category) }
   it { should respond_to(:content) }
   it { should respond_to(:sender_id) }
   it { should respond_to(:user_id) }
@@ -31,6 +32,10 @@ RSpec.describe Letter, :type => :model do
 
   it "should have a sender" do
     expect(@letter.sender).to eq(sender)
+  end
+
+  it "should have a default value of 'sale' for category field" do
+    expect(@letter.category).to eq('sale')
   end
 
   describe "when a user_id is not present" do
