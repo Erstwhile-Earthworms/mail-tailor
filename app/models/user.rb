@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   before_save { self.email = email.downcase }
+  before_save { self.mtname = mtname.downcase }
   before_create :create_remember_token
 
   has_many :letters, dependent: :destroy
