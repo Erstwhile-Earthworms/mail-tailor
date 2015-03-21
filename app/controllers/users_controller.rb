@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @senders = @user.letters.map { |letter| letter.sender }
+    @senders = @user.letters.map { |letter| letter.sender }.uniq
   end
 
   private
