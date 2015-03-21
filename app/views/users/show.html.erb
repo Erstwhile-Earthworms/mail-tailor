@@ -67,11 +67,11 @@
                                     <%= letter.title %> <br/>
                                     <%= letter.category %>
                                     <br/>
-                                    <%= letter.content.html_safe  %><br>
                                     <%= if letter.raw_html
                                             letter.raw_html.html_safe
-                                        end
-                                          %>
+                                        else
+                                            letter.content.html_safe
+                                        end%>
 
                                 </div>
                             </div>
