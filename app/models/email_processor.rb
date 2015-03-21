@@ -10,7 +10,8 @@ class EmailProcessor
 
     if user
       sender_host_name = @email.from[:host]
-      sender = Sender.find_by_name(sender_host_name) || Sender.create(name: sender_host_name, display_name: parse_display_name(sender_host_name) )
+      # sender = Sender.find_by_name(sender_host_name) || Sender.create(name: sender_host_name, display_name: parse_display_name(sender_host_name) )
+      sender = Sender.create(name: sender_host_name, display_name: parse_display_name(sender_host_name) )
       Letter.create!({ content: @email.body, sender:sender, user:user, raw_html:@email.raw_html})
     end
 
