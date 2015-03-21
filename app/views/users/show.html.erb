@@ -10,6 +10,9 @@
 </head>
 
 <body>
+
+
+
   <div class = "container-fluid">
 
      <div id="wrapper">
@@ -32,7 +35,9 @@
                 </li>
                 <% @senders.each do |sender| %>
                   <li>
-                      <span id = "<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>" ><%= sender.display_name %></a>
+                      <span id = "<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>"><%= sender.display_name %></span>
+                      <button id =  "delete<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>">DELETE</button>
+
                   </li>
                 <% end %>
 
@@ -67,32 +72,73 @@
                                   </div><!-- /.navbar-collapse -->
                               </div><!-- /.container-fluid -->
                           </nav>
-                          <% @user.letters.each do |letter| %>
-                          <div class="col-lg-12" id="content">
-                              <div id="email">
-                                  <%= letter.title %> <br/>
-                                  <br/>
-                                  <%= letter.content.html_safe %>
-                                  </div>
+                          <div id="mailDis">
 
+
+                            <% @user.letters.each do |letter| %>
+                            <div class="col-lg-12" id="content">
+                                <div id="email" class = "letterDiv class<%= letter.sender.display_name.gsub(" " , "").gsub('.' , "")%>">
+                                    <%= letter.title %> <br/>
+                                    <br/>
+                                    <%= letter.content.html_safe %>
+                                    </div>
+
+                            </div>
+                            <% end %>
                           </div>
-                          <% end %>
                       </div>
                   </div>
               </div><!-- /#page-content-wrapper -->
           </div> <!-- closes container -->
   <!-- Bootstrap JS -->
+
+  <!--  dialog pop ups -->
+  <!--  dialog pop ups were an  -->
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script>
+    var sendClassArray = [
+      <% @senders.each do |sender| %>
+        "class<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>" ,
+      <% end %>
+    ]
+
+    var mailDis = document.getElementById("mailDis");
+
+    $( document ).ready(function() {
 
   <% @senders.each do |sender| %>
 
     var <%= 'get' + sender.display_name.gsub(" " , "").gsub("." , "") %> = document.getElementById("<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>");
-    <%= 'get' + sender.display_name.gsub(" " , "").gsub("." , "") %>.addEventListener("click" , function(){alert('<%= sender.display_name %>')});
+
+
+    $("#<%=sender.display_name.gsub(' ' , '').gsub('.' , '') %>").click(function(){
+
+            $("#<%=sender.display_name.gsub(' ' , '').gsub('.' , '') %>").parent().toggleClass("changebackground");
+
+            $(".class<%= sender.display_name.gsub(' ' , '').gsub('.' , '') %>").toggle();
+
+        });
+
+
+
+
+
+
+          $("#delete<%= sender.display_name.gsub(' ' , '').gsub('.' , '') %>").click(function() {
+            var kill = window.confirm("are you sure you wish to delete?");
+            if (kill == true){
+              $("#<%=sender.display_name.gsub(' ' , '').gsub('.' , '') %>").parent().remove();
+              $(".class<%= sender.display_name.gsub(' ' , '').gsub('.' , '') %>").remove();
+            };
+        });
+
+
 
   <% end %>
-
+});
 
   </script>
 
