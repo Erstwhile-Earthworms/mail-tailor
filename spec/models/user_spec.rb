@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, :type => :model do
 
-  before { @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar") }
+  before { @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar", mtname: 'example') }
 
   subject { @user }
 
@@ -23,6 +23,18 @@ RSpec.describe User, :type => :model do
   describe "when name not present" do
     before { @user.name = '' }
     it { should_not be_valid }
+  end
+
+  describe "when mtname is upcased" do
+    before do 
+      @user.mtname = 'Coolz' 
+      @user.save
+    end
+    
+    it "saves it as lowercase" do
+      expect(@user.mtname).to eq 'coolz'
+    end
+
   end
 
   describe "when email not present" do
