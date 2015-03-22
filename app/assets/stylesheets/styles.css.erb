@@ -2,6 +2,16 @@ body{
     background-image: url( <%= asset_path('mail.jpg') %> );
     background-size: 100%;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+button{
+  height:34px;
+  width:62px;
+}
+
+#marqContainer{
+  height:46px;
 }
 
 #header {
@@ -68,6 +78,11 @@ body{
   height: 100%;
   overflow: scroll;
 }
+
+.deleteSingle {
+  float: right;
+}
+
 
 .email {
   height: 300px;
@@ -184,13 +199,26 @@ p{
 
 .sidebar-nav li {
     text-indent: 20px;
-    line-height: 40px;
+    height: 45px;
+    width: 100%;
+    color: #ccc;
 }
 
-.sidebar-nav li a {
-    display: block;
+/*.sidebar-nav li span {
+    display: inline-block;
     text-decoration: none;
-    color: #999999;
+    color: #ccc;
+}*/
+
+.delete {
+    float: right;
+    height: 90%;
+    width:26%;
+    color: black;
+    margin-right: 18px;
+    text-align: center;
+    padding-bottom: 10px;
+
 }
 
 .sidebar-nav li a:hover {
@@ -219,9 +247,14 @@ p{
     background: none;
 }
 
+#mailDis{
+  padding-top: 120px;
+}
+
 .changebackground{
-   background-color: #DD8F00 !important;
-   border: 2px solid red;
+   background-color: #DD3300 !important;
+   border: 1px solid red;
+   font-weight: bold;
 }
 
 
