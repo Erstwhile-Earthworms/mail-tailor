@@ -52,11 +52,26 @@ RSpec.describe "UserPages", :type => :request do
     let!(:letter1) { FactoryGirl.create(:letter, user:user, content:'Foo', sender:sender)}
     let!(:letter2) { FactoryGirl.create(:letter, user:user, content:'Bar', sender:sender)}
 
-    before { visit user_path(user) }
+    describe "when not signed in" do
 
-    describe "letters" do
-      it { should have_content(letter1.content) }
-      it { should have_content(letter2.content) }
+      it "should redirect back to login page" do
+        visit user_path(user) 
+        expect(current_path).to eq(root_path)
+      end
+    end
+
+    describe "when properly signed in" do
+
+      before do 
+        sign_in(user)
+        visit user_path(user) 
+      end
+
+      describe "letters" do
+        it { should have_content(letter1.content) }
+        it { should have_content(letter2.content) }
+      end
+
     end
 
   end
