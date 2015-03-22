@@ -16,7 +16,18 @@ class EmailProcessor
 
   end
 
+  def squash(name)
+    name.downcase.gsub('.','').gsub(',','').gsub(' ','')
+  end
+
   def parse_display_name(host_name)
+
+    known_brands = ['Apple', 'General Assembly', 'J. Crew', 'Groupon', 'JetBlue', 'Kayak', 'Starbucks', 'Gilt', 'Travelocity', 'LivingSocial', 'CNET',
+    'Smashing Magazine']
+    known_brands.each do |brand|
+      return brand if squash(host_name).include?(squash(brand))
+    end
+
     if host_name.include? '.'
       return host_name.split('.')[0].capitalize
     end

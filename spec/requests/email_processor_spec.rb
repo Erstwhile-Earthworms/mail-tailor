@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "EmailProcessor", :type => :request do
 
+
   describe "with a valid email posted to EmailProcessor" do
 
     let(:email) { fake_sendgrid_params("This is a test") }
@@ -52,7 +53,25 @@ RSpec.describe "EmailProcessor", :type => :request do
     end
 
 
+  end
 
+  describe "with a valid email from Gilt and valid matching user" do
+    let!(:user) { FactoryGirl.create(:user, mtname:'griddles') }
+    let(:email) { fake_gilt_email_params }
+
+    specify "the sender's display name is properly computed" do
+      page.driver.post(email_processor_path, email)
+      sender = Sender.all.first
+      expect(sender.display_name).to eq('Gilt')
+    end
+  end
+
+  def fake_gilt_email_params
+    {
+      to: 'Mr. Griddles <griddles@example.com>',
+      from: 'Bob Smith <emailtoyou@g.gilt.com>',
+      text: 'hello',
+    }
   end
 
   def fake_sendgrid_params(message)
