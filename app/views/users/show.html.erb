@@ -8,7 +8,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand" id="logo"> MAIL TAILOR </li>
                 <li> <input placeholder="SEARCH" id="search"> </li>
-
+                <li> <span id="allSend">All Senders</span> </li>
                 <% @senders.each do |sender| %>
                 <li>
                       <span class="brands" id="<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>"><%= sender.display_name %></span>
@@ -30,7 +30,7 @@
                           <div class="container-fluid">
                               <div class="navbar-header">
                                 <div id="marqContainer">
-                                  <h1 id="marquee"></h1>
+                                  <h1 id="marquee">All Senders</h1>
                                 </div>
 
                                 <div id="catselect">
@@ -161,11 +161,17 @@
 
   <% end %>
 
+  $("#allSend").click(function(){
+    $(this).parent().parent().children().removeClass("changebackground");
+    $(this).parent().addClass("changebackground");
+    $("#mailDis").children().addClass("showLetter");
+    $("#marquee").text('All Senders');
+  })
 
   $(".deleteSingle").click(function(){
     var killSingle = window.confirm("are you sure you wish to delete?");
     if (killSingle == true){
-      $(this).parent().slideUp(400,function(){this.remove();});
+      $(this).parent().remove();
     };
 
   })
