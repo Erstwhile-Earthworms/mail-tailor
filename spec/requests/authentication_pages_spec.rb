@@ -24,13 +24,12 @@ RSpec.describe "Authentication", :type => :request do
         sign_in(user)
       end
 
-      # it { should have_link('LOGOUT',    href: signout_path) }
-      it { should have_content 'SENDER' }
+      it { should have_content 'Sales' }
 
-      # describe "followed by signout" do
-      #   before { click_link 'LOGOUT' }
-      #   it { should have_content('LOGIN') }
-      # end
+      describe "followed by signout" do
+        before { click_link 'Log Out' }
+        it { should have_content('LOGIN') }
+      end
 
     end
 
