@@ -22,7 +22,8 @@ class EmailProcessor
 
   def parse_display_name(host_name)
 
-    known_brands = ['Apple', 'General Assembly', 'J. Crew', 'Groupon', 'JetBlue', 'Kayak', 'Starbucks', 'Gilt', 'Travelocity']
+    known_brands = ['Apple', 'General Assembly', 'J. Crew', 'Groupon', 'JetBlue', 'Kayak', 'Starbucks', 'Gilt', 'Travelocity', 'LivingSocial', 'CNET',
+    'Smashing Magazine']
     known_brands.each do |brand|
       return brand if squash(host_name).include?(squash(brand))
     end
