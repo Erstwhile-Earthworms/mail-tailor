@@ -6,21 +6,15 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand" id="logo">
-                        MAIL TAILOR
-                </li>
+                <li class="sidebar-brand" id="logo"> MAIL TAILOR </li>
+                <li> <input placeholder="SEARCH" id="search"> </li>
 
-
-
-                <li>
-                    <input placeholder="SEARCH" id="search">
-                </li>
                 <% @senders.each do |sender| %>
-                  <li>
-                      <span id = "<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>"><%= sender.display_name %></span>
-                      <button id =  "delete<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>">DELETE</button>
+                <li>
+                      <span class="brands" id="<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>"><%= sender.display_name %></span>
+                      <button id="delete<%= sender.display_name.gsub(" " , "").gsub('.' , "") %>">DELETE</button>
 
-                  </li>
+                </li>
                 <% end %>
 
             </ul>
@@ -44,8 +38,8 @@
                               </div>
                               <!-- /.container-fluid -->
                           </nav>
-                          <div id="mailDis">
 
+                          <div id="mailDis">
 
                             <% @user.letters.each do |letter| %>
                             <div class="col-lg-12 content">
@@ -67,14 +61,7 @@
                   </div>
               </div><!-- /#page-content-wrapper -->
           </div> <!-- closes container -->
-  <!-- Bootstrap JS -->
 
-  <!--  dialog pop ups -->
-  <!--  dialog pop ups were an  -->
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script>
     var sendClassArray = [
       <% @senders.each do |sender| %>
@@ -129,6 +116,7 @@
 
             $("#marquee").text('<%= sender.display_name %>');
             $("#mailDis").children().removeClass("showLetter").addClass("hideLetter");
+            $("#<%=sender.display_name.gsub(' ' , '').gsub('.' , '') %>").parent().parent().children().removeClass("changebackground");
             $("#<%=sender.display_name.gsub(' ' , '').gsub('.' , '') %>").parent().toggleClass("changebackground");
 
             $(".class<%= sender.display_name.gsub(' ' , '').gsub('.' , '') %>").parent().removeClass("hideLetter");
