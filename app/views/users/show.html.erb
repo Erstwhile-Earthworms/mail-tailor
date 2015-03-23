@@ -45,21 +45,19 @@
 
                           <div id="mailDis">
 
-                            <% @user.letters.each do |letter| %>
-                            <div class="col-lg-12 content">
-                                <div class = "email letterDiv class<%= letter.sender.display_name.gsub(" " , "").gsub('.' , "")%> <%= letter.category %>">
-                                    <%= letter.title %> <button class="deleteSingle">Delete</button><br/>
-                                    Received: <%= letter.created_at.strftime("%I:%M%p on %m/%d/%Y") %><br/>
-                                    <%= letter.category %>
-                                    <br/>
-                                    <%= if letter.raw_html
-                                            letter.raw_html.html_safe
-                                        else
-                                            letter.content.html_safe
-                                        end%>
-                                </div>
+                            <% @user.letters.each do |letter|
+                                if letter.raw_html%>
+                                  <div class="col-lg-12 content">
+                                      <div class = "email letterDiv class<%= letter.sender.display_name.gsub(" " , "").gsub('.' , "")%> <%= letter.category %>">
+                                          <%= letter.title %> <button class="deleteSingle">Delete</button><br/>
+                                          Received: <%= letter.created_at.strftime("%I:%M%p on %m/%d/%Y") %><br/>
+                                          <%= letter.category %>
+                                          <br/>
+                                          <%= letter.raw_html.html_safe %>
+                                      </div>
 
-                            </div>
+                                  </div>
+                                <% end %>
                             <% end %>
                           </div>
                       </div>
