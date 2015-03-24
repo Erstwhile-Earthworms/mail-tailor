@@ -6,6 +6,8 @@
 
 /* Toggle Styles */
 
+
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -61,13 +63,9 @@
 
 .sidebar-nav li {
     text-indent: 20px;
-    line-height: 40px;
-}
-
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #999999;
+    height: 45px;
+    width: 100%;
+    color: #ccc;
 }
 
 .sidebar-nav li a:hover {
