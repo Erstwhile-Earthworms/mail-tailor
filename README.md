@@ -42,7 +42,7 @@ Our app uses ThoughtBot's [Griddler](https://github.com/thoughtbot/griddler) gem
 
 ##The Team
 
--  [Ian Brown](www.linkedin.com/in/ianmichaelbrown/en):  Project Manager
+-  [Ian Brown](http://www.linkedin.com/in/ianmichaelbrown/en):  Project Manager
 
 -  [Kyle Hogan](https://github.com/kyle1980):  Developer
 
