@@ -3,6 +3,8 @@
 
 ##Deployed at http://www.mailtailor.net
 
+[MailTailor FrontPage](https://raw.github.com/Erstwhile-Earthworms/mail-tailor/app/assets/images/MailTailorFrontPageScreenshot.png)
+
 ##Getting started
 
 After you clone this repository, be sure you have Postgresql installed.  Run the `rake db:create` command to initialize the dev database, then `rake db:migrate`.
@@ -18,6 +20,8 @@ When Bob signs up for MailTailor, he choose a "username" (in the app we save thi
 Say Groupon sends bob@mailtailor.net a promotional email.  That email will go to SendGrid.  SendGrid will parse the email into a JSON object, then POST that object to a route in our MailTailor app (/email_processor).
 
 Our app uses ThoughtBot's [Griddler](https://github.com/thoughtbot/griddler) gem deal with the POST from SendGrid.  A method called `process` is defined in the `email_processor.rb` file.  There the "recipient" of the email is identified by parsing the email field. In the case of "bob@mailtailor.net", the user is "bob."   Since "bob" is a user in our database, a new email is created and associated with bob.  Now when Bob logs in, he will see the email on his dashboard.
+
+[MailTailor Dashboard](https://raw.github.com/Erstwhile-Earthworms/mail-tailor/app/assets/images/MailTailorDashboardScreenshot.png)
 
 
 ##Todo
