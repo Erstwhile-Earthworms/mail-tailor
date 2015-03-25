@@ -1,9 +1,7 @@
 #Mail Tailor
-## A Ruby on Rails web app for signing up for and viewing promotional emails, built using TDD and the [SendGrid Parse Webhook API](https://sendgrid.com/docs/API_Reference/Webhooks/parse.html)
+### A Ruby on Rails web app for signing up for and viewing promotional emails, built using TDD and the [SendGrid Parse Webhook API](https://sendgrid.com/docs/API_Reference/Webhooks/parse.html), deployed at http://www.mailtailor.net
 
-##Deployed at http://www.mailtailor.net
-
-[MailTailor FrontPage](https://raw.github.com/Erstwhile-Earthworms/mail-tailor/app/assets/images/MailTailorFrontPageScreenshot.png)
+[MailTailor FrontPage](https://raw.githubusercontent.com/Erstwhile-Earthworms/mail-tailor/master/app/assets/images/MailTailorFrontPageScreenshot.png)
 
 ##Getting started
 
@@ -21,7 +19,7 @@ Say Groupon sends bob@mailtailor.net a promotional email.  That email will go to
 
 Our app uses ThoughtBot's [Griddler](https://github.com/thoughtbot/griddler) gem deal with the POST from SendGrid.  A method called `process` is defined in the `email_processor.rb` file.  There the "recipient" of the email is identified by parsing the email field. In the case of "bob@mailtailor.net", the user is "bob."   Since "bob" is a user in our database, a new email is created and associated with bob.  Now when Bob logs in, he will see the email on his dashboard.
 
-[MailTailor Dashboard](https://raw.github.com/Erstwhile-Earthworms/mail-tailor/app/assets/images/MailTailorDashboardScreenshot.png)
+[MailTailor Dashboard](https://raw.githubusercontent.com/Erstwhile-Earthworms/mail-tailor/master/app/assets/images/MailTailorDashboardScreenshot.png)
 
 
 ##Todo
